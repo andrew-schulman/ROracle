@@ -4,4 +4,4 @@ This is a patched version of ROracle 1.3, forked from https://github.com/cran/RO
 
 To build ROracle from this repo instead of from CRAN, just run
 
-    devtools::install.packages('andrew-schulman/ROracle')
+    devtools::install_github('andrew-schulman/ROracle')

@@ -111,6 +111,7 @@ cp ${ROCI_INC}/ociap.h ./src/oci
 cp ${ROCI_INC}/ociapr.h ./src/oci
 cp ${ROCI_INC}/ocidfn.h ./src/oci
 cp ${ROCI_INC}/ociextp.h ./src/oci
+cp ${ROCI_INC}/ociver.h ./src/oci
 cp ${ROCI_INC}/ocixmldb.h ./src/oci
 cp ${ROCI_INC}/ocixstream.h ./src/oci
 cp ${ROCI_INC}/ori.h ./src/oci

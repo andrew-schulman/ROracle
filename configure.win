@@ -52,7 +52,7 @@ if test -f $ROCI_LIB/genezi ; then
   #    LoadLibrary failure:  %1 is not a valid Win32 application.
   #
   ROCI_LIB_ARCH=`echo $ROCI_LIB_INFO | gawk '{print $4}'`
-  if [ $R_ARCH = '/i386' -a $ROCI_LIB_ARCH = '64-bit' ] ; then
+  if [ "$R_ARCH" = '/i386' -a "$ROCI_LIB_ARCH" = '64-bit' ] ; then
     echo $ROCI_LIB_INFO "cannot be used to install with 32-bit R." >&2
     exit 1
   fi
@@ -60,7 +60,7 @@ if test -f $ROCI_LIB/genezi ; then
   # 32-bit version of Oracle Client library cannot be used when building with
   # 64-bit R with --merge-multiarch, R reports following error:
   #  " collect2: ld returned 5 exit status"
-  if [ $R_ARCH = '/x64' -a $ROCI_LIB_ARCH = '32-bit' ] ; then
+  if [ "$R_ARCH" = '/x64' -a "$ROCI_LIB_ARCH" = '32-bit' ] ; then
     echo $ROCI_LIB_INFO "cannot be used to install with 64-bit R." >&2
     exit 1
   fi

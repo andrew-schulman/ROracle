@@ -2,7 +2,7 @@
 
 This is a patched version of ROracle 1.3, forked from https://github.com/cran/ROracle. It fixes two build errors in Windows:
 
-1. Adds a missing file (ociver.h) into the Windows configure script. For background on the bug, which is unfixed for 5 years as of November 2023, see https://stackoverflow.com/questions/52215350/roracle-package-installation-failure.
+1. Adds a missing file (ociver.h) into the Windows configure script. For background on the bug, which is unfixed upstream for 5 years as of November 2023, see https://stackoverflow.com/questions/52215350/roracle-package-installation-failure.
 
 2. Quotes the pathname to the Oracle client, avoiding build failures when the pathname contains spaces.
 
@@ -41,12 +41,12 @@ See also the INSTALL file in the package source.
 
 At run time, before you can load ROracle in Windows, you have to update the PATH environment variable to include the R and Oracle home directories:
 
-    Sys.setenv(PATH = paste0(Sys.getenv("PATH"), ";", Sys.getenv("ORACLE_HOME"), ";", R.home(), "/bin/x64"))
+    Sys.setenv(
+	  PATH = paste0(Sys.getenv("PATH"), ";", Sys.getenv("ORACLE_HOME"), ";", R.home(), "/bin/x64")
+	)
 
-If you don't do that, then when you try to load ROracle you'll get an error like this one:
+If you don't do that, then when you try to use ROracle, for example by calling `dbConnect(ROracle::Oracle(), ...)`, you'll get an error like this one:
 
-    > library(ROracle)
-    Loading required package: DBI
     Error: package or namespace load failed for ‘ROracle’ in inDL(x, as.logical(local), as.logical(now), ...):
      unable to load shared object 'C:/Users/aschulma/Software/R/win-library/4.3/ROracle/libs/x64/ROracle.dll':
       LoadLibrary failure:  The specified module could not be found.
